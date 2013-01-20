@@ -390,7 +390,7 @@ static int destruct(lua_State* L)
 
 static Greystripe *getInstance(lua_State *L, int index)
 {
-	GReferenced *object = static_cast<GReferenced*>(g_getInstance(L, "MoPub", index));
+	GReferenced *object = static_cast<GReferenced*>(g_getInstance(L, "Greystripe", index));
 	Greystripe *greystripe = static_cast<Greystripe*>(object->proxy());
     
 	return greystripe;
@@ -476,12 +476,12 @@ static int loader(lua_State *L)
 	lua_setfield(L, -2, "INTERSTITIAL_CLICKED");
 	lua_pop(L, 1);
     
-	Greystripe *mopub = new Greystripe(L);
-	g_pushInstance(L, "Greystripe", mopub->object());
+	Greystripe *instance = new Greystripe(L);
+	g_pushInstance(L, "Greystripe", instance->object());
     
 	luaL_rawgetptr(L, LUA_REGISTRYINDEX, &keyWeak);
 	lua_pushvalue(L, -2);
-	luaL_rawsetptr(L, -2, mopub);
+	luaL_rawsetptr(L, -2, instance);
 	lua_pop(L, 1);
     
 	lua_pushvalue(L, -1);

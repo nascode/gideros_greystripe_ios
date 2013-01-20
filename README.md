@@ -1,7 +1,7 @@
 Greystripe iOS Plugin for Gideros
 =======================
 
-AdColony iOS plugin for Gideros
+Greystripe iOS plugin for Gideros
 
 Greystripe
 ------------
